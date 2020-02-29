@@ -12,9 +12,9 @@ class MandelbrotImageShould extends BaseTestClass {
         $resolution = 160;
         $image = new Image($resolution);
 
-        $fileDir = __DIR__;
-        $fileName = "/mandelbrot-{$resolution}x{$resolution}.png";
-        $filePath = __DIR__ . $fileName;
+        $fileDir = __DIR__ . '/../output';
+        $fileName = "mandelbrot-{$resolution}x{$resolution}.png";
+        $filePath = $fileDir . "/" . $fileName;
 
         if (is_file($filePath)) {
             unlink($filePath);
