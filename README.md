@@ -52,21 +52,35 @@ And different solutions in different branches like:
 
 PHP
 ```
-PHP 7.3.13
+PHP 7.4
 ```
 
 ### Installation
 
-PHP
+PHP without docker
 ```
 composer install
 ```
 
+PHP with docker
+```
+docker build -t mandelbrot-kata .
+```
+
 ## Running the tests
 
-PHP
+PHP without docker
 ```
 ./vendor/bin/phpunit
+```
+
+PHP with docker
+```
+docker run -it --rm \
+	-v "$PWD":/usr/src/app \
+	-w /usr/src/app \
+	-u $(id -u ${USER}):$(id -g ${USER}) \
+	mandelbrot-kata
 ```
 
 ## Acknowledgments
