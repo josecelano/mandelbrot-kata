@@ -42,32 +42,17 @@ Mandelbrot Set is inside those limits.
 
 There is a branch for each language with the scaffolding code.
 
-* php
+* [php]https://github.com/HyveInnovate/mandelbrot-kata/tree/php
+* [javascript]https://github.com/HyveInnovate/mandelbrot-kata/tree/javascript
+* [python]https://github.com/HyveInnovate/mandelbrot-kata/tree/python
 
 And different solutions in different branches like:
 
 * php-solution1
 
-### Prerequisites
+### Installation and running tests
 
-PHP
-```
-PHP 7.3.13
-```
-
-### Installation
-
-PHP
-```
-composer install
-```
-
-## Running the tests
-
-PHP
-```
-./vendor/bin/phpunit
-```
+See scaffolding branch README for the language.
 
 ## Acknowledgments
 
