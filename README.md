@@ -42,9 +42,9 @@ Mandelbrot Set is inside those limits.
 
 There is a branch for each language with the scaffolding code.
 
-* [php]https://github.com/HyveInnovate/mandelbrot-kata/tree/php
-* [javascript]https://github.com/HyveInnovate/mandelbrot-kata/tree/javascript
-* [python]https://github.com/HyveInnovate/mandelbrot-kata/tree/python
+* [php](https://github.com/HyveInnovate/mandelbrot-kata/tree/php)
+* [javascript](https://github.com/HyveInnovate/mandelbrot-kata/tree/javascript)
+* [python](https://github.com/HyveInnovate/mandelbrot-kata/tree/python)
 
 And different solutions in different branches like:
 
