@@ -43,6 +43,8 @@ Mandelbrot Set is inside those limits.
 There is a branch for each language with the scaffolding code.
 
 * php
+* javascript
+* python
 
 And different solutions in different branches like:
 
@@ -50,23 +52,26 @@ And different solutions in different branches like:
 
 ### Prerequisites
 
-PHP
 ```
-PHP 7.3.13
+Python 3.6.9
+Pillow 7.0.0
+pytest-5.3.5
 ```
 
 ### Installation
 
-PHP
-```
-composer install
+```bash
+docker build -t mandelbrot-kata-python .
 ```
 
 ## Running the tests
 
-PHP
-```
-./vendor/bin/phpunit
+```bash
+docker run -it --rm \
+	-v "$PWD":/usr/src/app \
+	-w /usr/src/app \
+	-u $(id -u ${USER}):$(id -g ${USER}) \
+	mandelbrot-kata-python
 ```
 
 ## Acknowledgments
