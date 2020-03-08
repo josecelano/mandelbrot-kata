@@ -43,6 +43,7 @@ Mandelbrot Set is inside those limits.
 There is a branch for each language with the scaffolding code.
 
 * php
+* javascript
 
 And different solutions in different branches like:
 
@@ -50,24 +51,42 @@ And different solutions in different branches like:
 
 ### Prerequisites
 
-PHP
 ```
-PHP 7.3.13
+node 13.8.0
 ```
 
 ### Installation
 
-PHP
-```
-composer install
+```bash
+docker build -t mandelbrot-kata-node .
+docker run -it --rm \
+	-v "$PWD":/usr/src/app \
+	-w /usr/src/app \
+	-u $(id -u ${USER}):$(id -g ${USER}) \
+	mandelbrot-kata-node\
+    npm install 
 ```
 
 ## Running the tests
 
-PHP
+```bash
+docker run -it --rm \
+	-v "$PWD":/usr/src/app \
+	-w /usr/src/app \
+	-u $(id -u ${USER}):$(id -g ${USER}) \
+	mandelbrot-kata-node
 ```
-./vendor/bin/phpunit
-```
+
+## Running bash
+
+```bash
+docker run -it --rm \
+	-v "$PWD":/usr/src/app \
+	-w /usr/src/app \
+	-u $(id -u ${USER}):$(id -g ${USER}) \
+	mandelbrot-kata-node \
+    bash
+```    
 
 ## Acknowledgments
 

@@ -1,0 +1,29 @@
+{
+  "name": "mandelbrot-kata",
+  "version": "1.0.0",
+  "description": "This a little programming exercise using the fractal domain, in particular the Mandelbrot Set.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyveInnovate/mandelbrot-kata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HyveInnovate/mandelbrot-kata/issues"
+  },
+  "homepage": "https://github.com/HyveInnovate/mandelbrot-kata#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "dependencies": {
+    "Complex": "^3.0.0",
+    "jimp": "^0.9.5"
+  }
+}
