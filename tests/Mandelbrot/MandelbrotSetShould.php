@@ -3,7 +3,7 @@
 namespace Tests\Mandelbrot;
 
 use Complex\Complex;
-use MandelBrot\Set;
+use Mandelbrot\Set;
 
 class MandelbrotSetShould extends BaseTestClass {
     /** @test */

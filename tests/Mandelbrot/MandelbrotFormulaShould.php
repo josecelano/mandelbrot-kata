@@ -3,7 +3,7 @@
 namespace Tests\Mandelbrot;
 
 use Complex\Complex;
-use MandelBrot\Formula;
+use Mandelbrot\Formula;
 
 class MandelbrotFormulaShould extends BaseTestClass {
     /**

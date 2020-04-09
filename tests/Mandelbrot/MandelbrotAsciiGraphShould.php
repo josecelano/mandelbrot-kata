@@ -2,7 +2,7 @@
 
 namespace Tests\Mandelbrot;
 
-use MandelBrot\AsciiGraph;
+use Mandelbrot\AsciiGraph;
 
 class MandelbrotAsciiGraphShould extends BaseTestClass {
     /** @test */

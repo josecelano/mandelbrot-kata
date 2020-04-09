@@ -2,7 +2,7 @@
 
 namespace Tests\Mandelbrot;
 
-use MandelBrot\Image;
+use Mandelbrot\Image;
 
 class MandelbrotImageShould extends BaseTestClass {
     /** @test

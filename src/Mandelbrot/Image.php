@@ -1,6 +1,6 @@
 <?php
 
-namespace MandelBrot;
+namespace Mandelbrot;
 
 class Image {
 
