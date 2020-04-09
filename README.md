@@ -65,6 +65,12 @@ composer install
 PHP with docker
 ```
 docker build -t mandelbrot-kata .
+docker run -it --rm \
+	-v "$PWD":/usr/src/app \
+	-w /usr/src/app \
+	-u $(id -u ${USER}):$(id -g ${USER}) \
+	mandelbrot-kata \
+    composer install
 ```
 
 ## Running the tests
