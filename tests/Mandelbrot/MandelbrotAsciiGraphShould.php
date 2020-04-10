@@ -30,6 +30,10 @@ class MandelbrotAsciiGraphShould extends BaseTestClass {
 
     /** @test */
     public function generate_a_mandelbrot_ascii_graph_string_for_a_3x3_string() {
+        // Pending to fix this issue:
+        // https://github.com/josecelano/php-complex/issues/1
+        $this->markTestSkipped();
+
         $asciiGraph = new AsciiGraph(3);
 
         $output = $asciiGraph->generate();
