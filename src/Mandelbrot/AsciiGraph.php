@@ -2,18 +2,17 @@
 
 namespace Mandelbrot;
 
+use DomainException;
+
 class AsciiGraph {
     const MANDELBROT_POINT_CHAR = '*';
     const BACKGROUND_CHAR = ' ';
 
-    /**
-     * @var int
-     */
-    private $resolutionInCharacters;
+    private int $resolutionInCharacters;
 
     public function __construct(int $resolutionInCharacters) {
         if ($resolutionInCharacters < 1) {
-            throw new \DomainException('Invalid resolution. Minimum number of characters must be 1');
+            throw new DomainException('Invalid resolution. Minimum number of characters must be 1');
         }
         $this->resolutionInCharacters = $resolutionInCharacters;
     }

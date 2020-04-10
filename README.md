@@ -89,6 +89,16 @@ docker run -it --rm \
 	mandelbrot-kata
 ```
 
+Execute only one test class
+```
+docker run -it --rm \
+	-v "$PWD":/usr/src/app \
+	-w /usr/src/app \
+	-u $(id -u ${USER}):$(id -g ${USER}) \
+	mandelbrot-kata \
+    ./vendor/bin/phpunit --filter 'MandelbrotFormulaShould'
+```
+
 ## Acknowledgments
 
 * This kata was inspired by: https://github.com/edyoung/gnofract4d

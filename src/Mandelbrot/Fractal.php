@@ -2,12 +2,13 @@
 
 namespace Mandelbrot;
 
-use Complex\Complex;
+use ArbitraryPrecisionComplex\Complex;
+use ArbitraryPrecisionComplex\DecimalFactory;
+use DomainException;
 
 class Fractal {
 
-    /** @var integer */
-    private $resolution;
+    private int $resolution;
 
     /**
      * MandelbrotImage constructor.
@@ -15,7 +16,7 @@ class Fractal {
      */
     public function __construct(int $resolution) {
         if ($resolution < 1) {
-            throw new \DomainException('Invalid image resolution. It should be greater than 0');
+            throw new DomainException('Invalid image resolution. It should be greater than 0');
         }
         $this->resolution = $resolution;
     }
@@ -30,11 +31,16 @@ class Fractal {
     public function calculateComplexNumberForPixel(int $row, int $column): Complex {
         $this->validatePixelPosition($row, $column);
 
-        // 2 is the Mandelbrot graph limit in real and imaginary parts
-        $realPart = ((2 / ($this->resolution / 2)) * $column) - 2;
-        $imaginaryPart = 2 - ((2 / ($this->resolution / 2)) * $row);
+        $dResolution = DecimalFactory::from($this->resolution);
+        $dRow = DecimalFactory::from($row);
+        $dColumn = DecimalFactory::from($column);
+        $_2 = DecimalFactory::from(2);
 
-        return $this->crateComplex($imaginaryPart, $realPart);
+        // 2 is the Mandelbrot graph limit in real and imaginary parts
+        $realPart = (($_2 / ($dResolution / $_2)) * $dColumn) - $_2;
+        $imaginaryPart = $_2 - (($_2 / ($dResolution / $_2)) * $dRow);
+
+        return new Complex($realPart, $imaginaryPart);
     }
 
     public function pixelBelongsToMandelbrotSet(int $row, int $column) {
@@ -55,36 +61,19 @@ class Fractal {
      */
     private function validatePixelPosition(int $x, int $y) {
         if ($x < 0) {
-            throw new \DomainException('Invalid negative x position');
+            throw new DomainException('Invalid negative x position');
         }
 
         if ($y < 0) {
-            throw new \DomainException('Invalid negative y position');
+            throw new DomainException('Invalid negative y position');
         }
 
         if ($x > $this->resolution - 1) {
-            throw new \DomainException('Invalid x position for current resolution');
+            throw new DomainException('Invalid x position for current resolution');
         }
 
         if ($y > $this->resolution - 1) {
-            throw new \DomainException('Invalid y position for current resolution');
+            throw new DomainException('Invalid y position for current resolution');
         }
-    }
-
-    /**
-     * This method is needed due to this strange Complex class behavior:
-     * https://github.com/MarkBaker/PHPComplex/issues/11
-     *
-     * @param $imaginaryPart
-     * @param $realPart
-     * @return Complex
-     */
-    private function crateComplex($imaginaryPart, $realPart): Complex {
-        if ($imaginaryPart == 0) {
-            $c = new Complex($realPart);
-        } else {
-            $c = new Complex($realPart, $imaginaryPart);
-        }
-        return $c;
     }
 }

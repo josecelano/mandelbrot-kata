@@ -2,11 +2,13 @@
 
 namespace Tests\Mandelbrot;
 
+use Exception;
 use Mandelbrot\Image;
 
 class MandelbrotImageShould extends BaseTestClass {
-    /** @test
-     * @throws \Exception
+    /**
+     * @test
+     * @throws Exception
      */
     public function generate_a_mandelbrot_image_with_same_width_and_height() {
         $resolution = 160;

@@ -2,14 +2,13 @@
 
 namespace Mandelbrot;
 
+use DomainException;
+use Exception;
+
 class Image {
 
-    /** @var integer */
-    private $resolution;
-
-    /** @var Fractal */
-    private $fractal;
-
+    private int $resolution;
+    private Fractal $fractal;
     /** @var resource|false */
     private $img;
 
@@ -19,7 +18,7 @@ class Image {
      */
     public function __construct(int $resolution) {
         if ($resolution < 1) {
-            throw new \DomainException('Invalid image resolution. It should be greater than 0');
+            throw new DomainException('Invalid image resolution. It should be greater than 0');
         }
         $this->resolution = $resolution;
         $this->fractal = new Fractal($this->resolution);
@@ -27,6 +26,7 @@ class Image {
     }
 
     public function save(string $imagePath) {
+        /** @noinspection PhpUnhandledExceptionInspection */
         $this->guardThatDirectoryExists($imagePath);
 
         $this->createImage();
@@ -63,11 +63,11 @@ class Image {
 
     /**
      * @param string $imagePath
-     * @throws \Exception
+     * @throws Exception
      */
     private function guardThatDirectoryExists(string $imagePath) {
         if (!is_dir(dirname($imagePath))) {
-            throw new \Exception('Invalid directory path');
+            throw new Exception('Invalid directory path');
         }
     }
 

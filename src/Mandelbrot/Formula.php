@@ -2,7 +2,7 @@
 
 namespace Mandelbrot;
 
-use Complex\Complex;
+use ArbitraryPrecisionComplex\Complex;
 
 class Formula {
     public static function calculate(Complex $z, Complex $c) {

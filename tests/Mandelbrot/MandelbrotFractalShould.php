@@ -2,7 +2,7 @@
 
 namespace Tests\Mandelbrot;
 
-use Complex\Complex;
+use ArbitraryPrecisionComplex\Complex;
 use Mandelbrot\Fractal;
 
 class MandelbrotFractalShould extends BaseTestClass {
@@ -25,7 +25,7 @@ class MandelbrotFractalShould extends BaseTestClass {
         // Complex number is the top left corner of the pixel
         $c = $fractal->calculateComplexNumberForPixel(0, 0);
 
-        $this->assertEquals(new Complex('-2+2i'), $c);
+        $this->assertEquals(self::c('-2', '2'), $c);
     }
 
     /** @test */
@@ -43,8 +43,8 @@ class MandelbrotFractalShould extends BaseTestClass {
         ];
 
         $expectedPixels = [
-            [new Complex('-2+2i'), new Complex('2i')],
-            [new Complex('-2'), new Complex('0')],
+            [self::c('-2','2'), self::c('0', '2')],
+            [self::c('-2', '0'), self::c('0', '0')],
         ];
 
         $this->assertEquals($expectedPixels, $pixels);
@@ -64,10 +64,10 @@ class MandelbrotFractalShould extends BaseTestClass {
         }
 
         $expectedComplexForPixel = [
-            [new Complex('-2+2i'), new Complex('-1+2i'), new Complex('0+2i'), new Complex('1+2i')],
-            [new Complex('-2+1i'), new Complex('-1+1i'), new Complex('0+1i'), new Complex('1+1i')],
-            [new Complex('-2'), new Complex('-1'), new Complex('0'), new Complex('1')],
-            [new Complex('-2-1i'), new Complex('-1-1i'), new Complex('0-1i'), new Complex('1-1i')],
+            [self::c('-2', '2'), self::c('-1', '2'), self::c('0', '2'), self::c('1','2')],
+            [self::c('-2','1'), self::c('-1', '1'), self::c('0', '1'), self::c('1', '1')],
+            [self::c('-2', '0'), self::c('-1', '0'), self::c('0','0'), self::c('1','0')],
+            [self::c('-2','1'), self::c('-1','1'), self::c('0','1'), self::c('1','1')],
         ];
 
         $this->assertEquals($expectedComplexForPixel, $complexForPixel);
